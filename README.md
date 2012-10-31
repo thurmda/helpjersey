@@ -12,4 +12,8 @@ Packages are committed to the github repo. If you need to reinstall:
 
 Twitter Bootstrap is available in public/
 
+#Run
 
+ npm start
+
+The web app right now will start on your http://localhost:3000
