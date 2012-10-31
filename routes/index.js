@@ -6,7 +6,7 @@
 exports.index = function(req, res){
 
   res.render('index', { 
-  	title: 'Express',
+  	title: 'Help Jersey',
   	header: Math.floor((Math.random()*3)+1)
   })
 };
