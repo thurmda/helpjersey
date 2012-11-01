@@ -13,8 +13,17 @@ Packages are committed to the github repo. If you need to reinstall:
 Twitter Bootstrap is available in public/
 
 #Run
+If you have the heroku toolbelt installed () you can use 
 
- npm start
+    foreman start
 
-The web app right now will start on your http://localhost:3000
+and foreman will assign the web app a port just like on heroku. If not 
+you can simply run 
+
+    npm start
+
+and the web app will start on http://localhost:3000 Alter your config/index.js
+if you need a different port.
+
+
 

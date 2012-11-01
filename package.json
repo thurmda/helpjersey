@@ -8,8 +8,10 @@
     , "mongo": "0.1.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "stop": "make stop",
+    "start": "node bin/app.js",
     "test": "nodeunit test/*-test.js"
+  },
+  "engine": {
+    "node": "6.0.8"
   }
 }
