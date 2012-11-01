@@ -38,3 +38,15 @@ exports.donate = function(req, res){
         bodyClass: page
   });
 }
+
+exports.map = function(req, res){
+  var page = 'map';
+  res.render(page, {
+        title: 'The Jersey Shore', 
+        layout: 'layouts/default',
+        header: Math.floor((Math.random()*3)+1),
+        bodyClass: page
+  });
+}
+
+
