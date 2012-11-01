@@ -45,7 +45,6 @@ module.exports = [
 {name: "Ship Bottom", county: "Ocean"},
 {name: "Surf City", county: "Ocean"},
 {name: "Toms River", county: "Ocean"},
-{name: "", county: "Ocean"},
 /* Atlantic County */
 {name: "Atlantic City", county: "Atlantic"},
 {name: "Longport", county: "Atlantic"},

@@ -2,12 +2,23 @@
 <hr/>
 <table class="table table-striped">
 <thead>
+   <tr>
+    <th colspan="2"><input class='search' type="text" ></th>
+  </tr>
   <tr>
     <th><strong>Name</strong></th>
     <th><strong>Details</strong></th>
   </tr>
 </thead>
-<tbody>
+<script id="tmpl_result" type="template">
+{[ _.each(data, function(town){  ]}
+  <tr>
+    <td>{{~ town.name}}</td>
+    <td>{{~ town.county}}</td>
+  </tr>
+{[ }) ]}
+</script>
+<tbody class="results">
   <tr>
     <td>Belmar</td>
     <td>blah blah blah</td>
@@ -20,7 +31,9 @@ function index(){
 $.ajax({
     url: "/api/municipal",
     success: function (data) {
-        console.dir(data);
+        var html = _.template($('#tmpl_result').html(), data,  {variable: 'data'});
+        $('.results').html(html);
+        $('.search').typeahead({source: _.pluck(data, 'name')});
     }
 });
 
