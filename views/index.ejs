@@ -16,9 +16,12 @@
 </table>
 <script>
 function index(){
-$.get({
-    url: "/api/municipal"
 
+$.ajax({
+    url: "/api/municipal",
+    success: function (data) {
+        console.dir(data);
+    }
 });
 
 }

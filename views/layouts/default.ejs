@@ -116,7 +116,9 @@
     <script>
       !function ($) {
         if(typeof <%= bodyClass %> === 'function'){
-          $(<%= bodyClass %>); 
+          $(function(){
+            <%= bodyClass %>();
+          }); 
         }
       }(window.jQuery)
     </script>
