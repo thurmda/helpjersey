@@ -115,7 +115,9 @@
     <script src="/js/bootstrap-typeahead.js"></script>
     <script>
       !function ($) {
-        $(function(){})
+        if(typeof <%= bodyClass %> === 'function'){
+          $(<%= bodyClass %>); 
+        }
       }(window.jQuery)
     </script>
 </body>

@@ -1,16 +1,25 @@
-      <h1>City by City Help</h1>
-      <hr/>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th><strong>Name</strong></th>
-            <th><strong>Details</strong></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Belmar</td>
-            <td>blah blah blah</td>
-          </tr>
-        </tbody>
-      </table>
+<h1>City by City Help</h1>
+<hr/>
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th><strong>Name</strong></th>
+    <th><strong>Details</strong></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Belmar</td>
+    <td>blah blah blah</td>
+  </tr>
+</tbody>
+</table>
+<script>
+function index(){
+$.get({
+    url: "/api/municipal"
+
+});
+
+}
+</script>

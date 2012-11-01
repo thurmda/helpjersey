@@ -5,20 +5,21 @@ helpjersey
 #Install
 
 This uses Node.js (binaries available here http://nodejs.org/download/)
-Packages are committed to the github repo. If you need to reinstall: 
-    
+Packages are committed to the github repo. If you need to reinstall:
+
     rm -r node_modules
     npm install
 
 Twitter Bootstrap is available in public/
 
 #Run
-If you have the heroku toolbelt installed () you can use 
+If you have the heroku toolbelt installed (https://toolbelt.heroku.com/)
+you can use
 
     foreman start
 
-and foreman will assign the web app a port just like on heroku. If not 
-you can simply run 
+and foreman will assign the web app a port just like on heroku. If not
+you can simply run
 
     npm start
 
