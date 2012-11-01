@@ -25,3 +25,12 @@ exports.contact = function(req, res){
         bodyClass: page
   });
 }
+
+exports.donate = function(req, res){
+  var page = 'donate';
+  res.render(page, {
+        title: 'Donate', 
+        header: Math.floor((Math.random()*3)+1),
+        bodyClass: page
+  });
+}
