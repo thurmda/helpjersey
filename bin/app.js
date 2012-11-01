@@ -6,7 +6,8 @@
 var express = require('express'),
     config = require('../config'),
     ourTils = require('../lib/ourTils'),
-    routes = require('../routes');
+    routes = require('../routes'),
+    api = require('../routes/api');
 
 var app = module.exports = express.createServer();
 var port = process.env.PORT || config.port;
@@ -33,6 +34,7 @@ app.configure('production', function(){
 
 // Routes
 ourTils.mapRoutes(app, routes);
+ourTils.mapRoutes(app, api, '/api');
 
 app.listen(port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
