@@ -10,11 +10,10 @@ var express = require('express'),
     api = require('../routes/api');
 
 ourTils.override(process.env, config); 
-config.mongo = ourTils.parseMongoConnection(config.MONGOHQ_URL);
-//console.dir(config); 
-
 ourTils.setConfig(config);
-ourTils.upsert({name: "AH"}, {name : "AH", info: "woot!"});
+
+ourTils.setupDB();
+//ourTils.upsert({name: "Add"}, {name : "Add", info: "woot!"});
 
 var app = module.exports = express.createServer();
 
