@@ -1,41 +1,60 @@
 <h1>City by City Help</h1>
 <hr/>
-<table class="table table-striped">
-<thead>
-   <tr>
-    <th colspan="2"><input class='search' type="text" ></th>
-  </tr>
-  <tr>
-    <th><strong>Name</strong></th>
-    <th><strong>Details</strong></th>
-  </tr>
-</thead>
+<div>
+    <input class='search' type="text" >
+</div>
+<div class="results">
 <script id="tmpl_result" type="template">
 {[ _.each(data, function(town){  ]}
-  <tr>
-    <td>{{~ town.name}}</td>
-    <td>{{~ town.county}}</td>
-  </tr>
+  <div><a href="#!{{~ town.name}}">{{~ town.name}}</a></div>
 {[ }) ]}
 </script>
-<tbody class="results">
-  <tr>
-    <td>Belmar</td>
-    <td>blah blah blah</td>
-  </tr>
-</tbody>
-</table>
+</div>
+<div class="info">
+<script id="tmpl_info" type="template">
+{[console.dir(data); ]}
+{[ _.each(data, function(town){  ]}
+  <textarea>{{~ JSON.stringify(town.info) }}</textarea>
+{[ }) ]}
+</script>
+</div>
+
+
 <script>
 function index(){
-
+var tmpl = {
+    list : _.template($('#tmpl_result').html(),undefined,  {variable: "data"}),
+    info : _.template($('#tmpl_info').html(),undefined,  {variable: "data"})
+}
 $.ajax({
-    url: "/api/municipal",
+    url: "/api/allTowns",
     success: function (data) {
-        var html = _.template($('#tmpl_result').html(), data,  {variable: 'data'});
+        var html = tmpl.list(data);
         $('.results').html(html);
-        $('.search').typeahead({source: _.pluck(data, 'name')});
+        $('.search')
+            .typeahead({source: _.pluck(data, 'name')})
+            .change(function(){
+                var town = $(this).val();
+                location.hash = '#!' + town;
+            });
     }
 });
+$(window).bind('hashchange', getTown); 
+if(location.hash.length > 2){
+    getTown();
+}
+function getTown() {
+ var town = location.hash.substr(2);
+ $.ajax({
+            url: "/api/town",
+            data: {town: town}, 
+            success: function (data) {
+                $('.results').html('');
+                var html = tmpl.info(data);
+                $('.info').html(html);
+            }
+        });
+}
 
 }
 </script>
