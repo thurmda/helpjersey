@@ -9,8 +9,14 @@ var express = require('express'),
     routes = require('../routes'),
     api = require('../routes/api');
 
+ourTils.override(process.env, config); 
+config.mongo = ourTils.parseMongoConnection(config.MONGOHQ_URL);
+//console.dir(config); 
+
+ourTils.setConfig(config);
+ourTils.upsert({name: "AH"}, {name : "AH", info: "woot!"});
+
 var app = module.exports = express.createServer();
-var port = process.env.PORT || config.port;
 
 // Configuration
 app.configure(function(){
@@ -36,5 +42,5 @@ app.configure('production', function(){
 ourTils.mapRoutes(app, routes);
 ourTils.mapRoutes(app, api, '/api');
 
-app.listen(port);
+app.listen(config.PORT);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
