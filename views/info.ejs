@@ -1,0 +1,23 @@
+<script>
+var tmpl = {
+    info : _.template($('#tmpl_info').html(),undefined,  {variable: "data"})
+}
+
+function info(){
+if(location.hash.length > 2){
+    getTown();
+}
+function getTown() {
+ var town = location.hash.substr(2);
+ $.ajax({
+            url: "/api/town",
+            data: {town: town}, 
+            success: function (data) {
+                $('.results').html('');
+                var html = tmpl.info(data);
+                $('.info').html(html);
+            }
+        });
+}
+
+</script>
