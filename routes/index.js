@@ -31,6 +31,8 @@ routes.basic.need = function(req, res){
 routes.basic.give = function(req, res){
   var page = Page('give');
       page.title = 'Give Help';
+      page.layout = 'layouts/fb';
+      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
   res.render(page.name, page);
 };
 
@@ -44,9 +46,9 @@ routes.basic.map = function(req, res){
 routes.params.info = function(req, res){
   var page = Page('info');
       page.layout = 'layouts/fb';
-      page.title = 'Information';
-      page.params = req.params;
       page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
+      page.title = 'Help ' + req.params.town;
+      page.params = req.params;
   res.render(page.name,page);
 };
 routes.params.info.params = ['town']; 
