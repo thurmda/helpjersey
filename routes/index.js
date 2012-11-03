@@ -4,7 +4,7 @@ function Page(name){
             title: 'Help Jersey',
             layout: 'layouts/default',
             header: Math.floor((Math.random()*3)+1),
-            description: '',
+            description: 'Help Jersey is a mobile optimized site for sharing information about recovery from Hurricane Sandy.',
             bodyClass: name
         };
 }
