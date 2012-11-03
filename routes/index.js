@@ -26,6 +26,8 @@ routes.basic.index = function(req, res){
 routes.basic.need = function(req, res){
   var page = Page('need');
       page.title = 'Need Help';
+      page.layout = 'layouts/fb';
+      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
   res.render(page.name,page);
 };
 routes.basic.give = function(req, res){
