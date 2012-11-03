@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= description %>">
+
+    <%- partial('partials/head-stack') %>
+  </head>
+
+  <body class="<%= bodyClass %>">
+    <%- partial('partials/navbar') %>
+
+    <div class="container">
+      <%- body %>
+    </div>
+
+    <%- partial('partials/js-stack') %>
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+    <fb:comments href="<%=CANONICAL_URL%>"></fb:comments>
+  </body>
+</html>

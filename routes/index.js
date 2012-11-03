@@ -43,8 +43,10 @@ routes.basic.map = function(req, res){
 
 routes.params.info = function(req, res){
   var page = Page('info');
+      page.layout = 'layouts/fb';
       page.title = 'Information';
       page.params = req.params;
+      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
   res.render(page.name,page);
 };
 routes.params.info.params = ['town']; 
