@@ -12,7 +12,9 @@ var express = require('express'),
 ourTils.override(process.env, config); 
 ourTils.setConfig(config);
 
-ourTils.setupDB();
+if(process.env.freshDB){
+    ourTils.setupDB();
+}
 //ourTils.upsert({name: "Add"}, {name : "Add", info: "woot!"});
 
 var app = module.exports = express.createServer();
