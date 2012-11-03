@@ -26,5 +26,11 @@ you can simply run
 and the web app will start on http://localhost:3000 Alter your config/index.js
 if you need a different port.
 
+If you would like to start the app with a fresh database loaded from
+data/municpal prepend your start command with 'freshDB=true ' i.e.
+
+    freshDB=true foreman start
+
+    freshDB=true npm start
 
 
