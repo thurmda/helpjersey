@@ -71,7 +71,7 @@ $.ajax({
             .typeahead({source: _.pluck(data, 'name')})
             .change(function(){
                 var town = $(this).val();
-                location.href = '/info#!' + town;
+                location.href = '/info/' + town;
             });
     }
 });

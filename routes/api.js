@@ -1,6 +1,9 @@
 var ourTils = require('../lib/ourTils');
+var routes = {
+    basic: {}
+}
 
-exports.allTowns = function(req, res){
+routes.basic.allTowns = function(req, res){
     ourTils.find({}, {name:1, _id:0}, function(err, cursor) {
                  if (err) {
                     console.error(err);
@@ -14,7 +17,7 @@ exports.allTowns = function(req, res){
                 });
     });
 }
-exports.town = function(req, res){
+routes.basic.town = function(req, res){
     ourTils.find({name : req.query.town}, {}, function(err, cursor) {
                  if (err) {
                     console.error(err);
@@ -28,3 +31,4 @@ exports.town = function(req, res){
                 });
     });
 }
+module.exports = routes;
