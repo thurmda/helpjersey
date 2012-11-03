@@ -2,7 +2,7 @@ function Page(name){
     return {
             name: name,
             title: 'Help Jersey',
-            layout: 'layouts/minimal',
+            layout: 'layouts/default',
             header: Math.floor((Math.random()*3)+1),
             description: '',
             bodyClass: name
@@ -14,7 +14,6 @@ var routes = {
 }
 routes.basic.index = function(req, res){
   var page = Page('index');
-      page.layout = 'layouts/default';
   res.render(page.name, page);
 };
 
@@ -32,7 +31,6 @@ routes.basic.need = function(req, res){
 routes.basic.give = function(req, res){
   var page = Page('give');
       page.title = 'Give Help';
-      page.layout = 'layouts/default';
   res.render(page.name, page);
 };
 
