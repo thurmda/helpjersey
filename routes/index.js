@@ -1,3 +1,4 @@
+var fs = require('fs');
 function Page(name){
     return {
             name: name,
@@ -12,6 +13,7 @@ var routes = {
     basic: {},
     params: {}
 }
+var townPartials = {};
 routes.basic.index = function(req, res){
   var page = Page('index');
   res.render(page.name, page);
@@ -51,6 +53,12 @@ routes.params.info = function(req, res){
       page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
       page.title = 'Help ' + req.params.town;
       page.params = req.params;
+  if(townPartials[req.params.town]){
+      page.townPartial = 'partials/town/' + req.params.town
+  }else{
+      page.townPartial = 'partials/town/howto'
+  }
+     
   res.render(page.name,page);
 };
 routes.params.info.params = ['town']; 
