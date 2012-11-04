@@ -17,6 +17,7 @@ body {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  text-align: center;
 }
 
 @media screen and (max-width: 640px) {
@@ -34,4 +35,7 @@ body {
 
 @media screen and (min-width: 640px) {
   .hero-unit-mobile { display: none; }
+}
+
+.fb-like {
 }
