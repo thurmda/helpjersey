@@ -48,18 +48,27 @@ routes.basic.map = function(req, res){
 
 
 routes.params.info = function(req, res){
-  var page = Page('info');
+  var file,
+      page = Page('info');
       page.layout = 'layouts/fb';
       page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
       page.title = 'Help ' + req.params.town;
       page.params = req.params;
   if(townPartials[req.params.town]){
       page.townPartial = 'partials/town/' + req.params.town
+      res.render(page.name,page);
   }else{
-      page.townPartial = 'partials/town/howto'
+    file = process.env.PWD + '/views/partials/town/' + req.params.town +'.ejs';
+    fs.stat(file, function(err, data) {
+      if (!err) {
+        townPartials[req.params.town] = true;
+      } else {
+        page.townPartial = 'partials/town/howto'
+      }
+      res.render(page.name,page);
+    });
   }
-     
-  res.render(page.name,page);
+
 };
 routes.params.info.params = ['town']; 
 
