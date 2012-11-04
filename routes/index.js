@@ -31,12 +31,14 @@ routes.basic.need = function(req, res){
   var page = Page('need', req);
       page.title = 'Need Help';
       page.layout = 'layouts/fb';
+      page.stub = 'need';
   res.render(page.name,page);
 };
 routes.basic.give = function(req, res){
   var page = Page('give', req);
       page.title = 'Give Help';
       page.layout = 'layouts/fb';
+      page.stub = 'give';
   res.render(page.name, page);
 };
 
@@ -44,6 +46,7 @@ routes.basic.about = function(req, res){
   var page = Page('about', req);
       page.title = 'Aboout Help Jersey';
       page.layout = 'layouts/default';
+      page.stub = 'about';
   res.render(page.name, page);
 };
 
