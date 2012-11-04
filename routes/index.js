@@ -38,6 +38,14 @@ routes.basic.give = function(req, res){
   res.render(page.name, page);
 };
 
+routes.basic.about = function(req, res){
+  var page = Page('about');
+      page.title = 'Aboout Help Jersey';
+      page.layout = 'layouts/default';
+      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
+  res.render(page.name, page);
+};
+
 routes.basic.map = function(req, res){
   var page = Page('map');
       page.title = 'New Jersey';
