@@ -6,7 +6,7 @@ function Page(name, req){
             layout: 'layouts/default',
             header: Math.floor((Math.random()*3)+1),
             host: req.headers.host,
-            page.CANONICAL_URL = 'http://' +req.headers.host + req.url,
+            CANONICAL_URL : 'http://' +req.headers.host + req.url,
             description: 'Help Jersey is a mobile optimized site for sharing information about recovery from Hurricane Sandy.',
             bodyClass: name
         };
@@ -31,14 +31,12 @@ routes.basic.need = function(req, res){
   var page = Page('need', req);
       page.title = 'Need Help';
       page.layout = 'layouts/fb';
-      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
   res.render(page.name,page);
 };
 routes.basic.give = function(req, res){
   var page = Page('give', req);
       page.title = 'Give Help';
       page.layout = 'layouts/fb';
-      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
   res.render(page.name, page);
 };
 
@@ -46,7 +44,6 @@ routes.basic.about = function(req, res){
   var page = Page('about', req);
       page.title = 'Aboout Help Jersey';
       page.layout = 'layouts/default';
-      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
   res.render(page.name, page);
 };
 
@@ -61,7 +58,6 @@ routes.params.info = function(req, res){
   var file,
       page = Page('info', req);
       page.layout = 'layouts/fb';
-      page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
       page.title = 'Help ' + req.params.town;
       page.params = req.params;
   if(townPartials[req.params.town]){
