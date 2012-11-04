@@ -6,6 +6,7 @@ function Page(name, req){
             layout: 'layouts/default',
             header: Math.floor((Math.random()*3)+1),
             host: req.headers.host,
+            page.CANONICAL_URL = 'http://' +req.headers.host + req.url,
             description: 'Help Jersey is a mobile optimized site for sharing information about recovery from Hurricane Sandy.',
             bodyClass: name
         };
