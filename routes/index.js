@@ -1,10 +1,11 @@
 var fs = require('fs');
-function Page(name){
+function Page(name, req){
     return {
             name: name,
             title: 'Help Jersey',
             layout: 'layouts/default',
             header: Math.floor((Math.random()*3)+1),
+            host: req.headers.host,
             description: 'Help Jersey is a mobile optimized site for sharing information about recovery from Hurricane Sandy.',
             bodyClass: name
         };
@@ -15,7 +16,7 @@ var routes = {
 }
 var townPartials = {};
 routes.basic.index = function(req, res){
-  var page = Page('index');
+  var page = Page('index', req);
   res.render(page.name, page);
 };
 
@@ -26,14 +27,14 @@ routes.basic.index = function(req, res){
 //};
 
 routes.basic.need = function(req, res){
-  var page = Page('need');
+  var page = Page('need', req);
       page.title = 'Need Help';
       page.layout = 'layouts/fb';
       page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
   res.render(page.name,page);
 };
 routes.basic.give = function(req, res){
-  var page = Page('give');
+  var page = Page('give', req);
       page.title = 'Give Help';
       page.layout = 'layouts/fb';
       page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
@@ -41,7 +42,7 @@ routes.basic.give = function(req, res){
 };
 
 routes.basic.about = function(req, res){
-  var page = Page('about');
+  var page = Page('about', req);
       page.title = 'Aboout Help Jersey';
       page.layout = 'layouts/default';
       page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
@@ -49,7 +50,7 @@ routes.basic.about = function(req, res){
 };
 
 routes.basic.map = function(req, res){
-  var page = Page('map');
+  var page = Page('map', req);
       page.title = 'New Jersey';
   res.render(page.name, page);
 }
@@ -57,7 +58,7 @@ routes.basic.map = function(req, res){
 
 routes.params.info = function(req, res){
   var file,
-      page = Page('info');
+      page = Page('info', req);
       page.layout = 'layouts/fb';
       page.CANONICAL_URL = 'http://' +req.headers.host + req.url ;
       page.title = 'Help ' + req.params.town;
