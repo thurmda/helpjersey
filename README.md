@@ -8,6 +8,7 @@ href="http://helpjersey.com/">helpjersey.com</a> in your phone's browser. You
 can share the latest news right through the site so others can benefit from up 
 to the second information.
 
+[preview](http://helpjersey.com/img/helpjersey_preview.png)
 
 
 ##Install
