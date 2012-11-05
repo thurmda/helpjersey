@@ -2,13 +2,81 @@
 <div class="searchWrapper container">
     <input class='search' type="text" placeholder="search for your town" >
 </div>
--->
 
 <form class="form-search">
   <div class="input-append">
     <input type="text" class="span2 search-query search">
     <button type="submit" class="btn">Find My Town</button>
   </div>
+</form>
+
+-->
+<h3>Town by Town Resources</h3>
+<form>
+<select id="town" name="town">
+<option value="">Select a town</option>
+<option>Allenhurst</option>
+<option>Asbury Park</option>
+<option>Atlantic City</option>
+<option>Atlantic County</option>
+<option>Atlantic Highlands</option>
+<option>Avalon</option>
+<option>Avon By The Sea</option>
+<option>Barnegat Light</option>
+<option>Bay Head</option>
+<option>Beach Haven</option>
+<option>Belford</option>
+<option>Belmar</option>
+<option>Bradley Beach</option>
+<option>Brick Township</option>
+<option>Brielle</option>
+<option>Cape May</option>
+<option>Cape May County</option>
+<option>Deal</option>
+<option>Freehold</option>
+<option>Highlands</option>
+<option>Island Beach</option>
+<option>Keansburg</option>
+<option>Keyport</option>
+<option>Lake Como</option>
+<option>Lakewood</option>
+<option>Laurence Harbor</option>
+<option>Lavallette</option>
+<option>Leonardo</option>
+<option>Loch Arbour</option>
+<option>Long Beach Island</option>
+<option>Long Branch</option>
+<option>Longport</option>
+<option>Loveladies</option>
+<option>Manasquan</option>
+<option>Monmouth Beach</option>
+<option>Morgan</option>
+<option>Neptune</option>
+<option>New Brunswick</option>
+<option>Ocean City</option>
+<option>Ocean County</option>
+<option>Ocean Grove</option>
+<option>Perth Amboy</option>
+<option>Point Pleasant Beach</option>
+<option>Red Bank</option>
+<option>Rumson</option>
+<option>Sandy Hook</option>
+<option>Sayerville</option>
+<option>Sea Bright</option>
+<option>Sea Girt</option>
+<option>Sea Isle City</option>
+<option>Seaside Heights</option>
+<option>Ship Bottom</option>
+<option>South Amboy</option>
+<option>South River</option>
+<option>Spring Lake</option>
+<option>Stone Harbor</option>
+<option>Surf City</option>
+<option>Toms River</option>
+<option>Union Beach</option>
+<option>Wall Township</option>
+<option>Wildwood</option>
+</select>
 </form>
 
 <hr/>
@@ -152,6 +220,16 @@ PSE&amp;G: <a href="tel:800-436-7734">800-436-7734</a></p>
 
 <script>
 function need(){
+$('#town').change(function(){
+    var town = $(this).val();
+    if (town !== ''){
+        location.href = '/info/' + town;
+    }
+});
+}
+/*
+function need(){
+
 $.ajax({
     url: "/api/allTowns",
     success: function (data) {
@@ -164,4 +242,5 @@ $.ajax({
     }
 });
 }
+*/
 </script>
