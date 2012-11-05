@@ -1,18 +1,27 @@
-helpjersey
-==========
+#Help Jersey
+
+Our project is focused on making information available to Sandy victims and 
+volunteers that only have access to the internet via a phone. Most state and 
+federal websites are virtually unusable on a phone so we are making that 
+information accessible to those that need it most. Just open <a 
+href="http://helpjersey.com/">helpjersey.com</a> in your phone's browser. You 
+can share the latest news right through the site so others can benefit from up 
+to the second information.
 
 
-#Install
 
-This uses Node.js (binaries available here http://nodejs.org/download/)
-Packages are committed to the github repo. If you need to reinstall:
+##Install
+
+This project is built on Node.js, Express.js and MongoDB (binaries available 
+here http://nodejs.org/download/) Packages are committed to the github repo so 
+if you develop on a Mac it should just work. If you need to reinstall them for 
+your environment:
 
     rm -r node_modules
     npm install
 
-Twitter Bootstrap is available in public/
 
-#Run
+##Run
 If you have the heroku toolbelt installed (https://toolbelt.heroku.com/)
 you can use
 
