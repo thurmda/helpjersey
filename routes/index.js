@@ -71,6 +71,7 @@ routes.params.info = function(req, res){
     fs.stat(file, function(err, data) {
       if (!err) {
         townPartials[req.params.town] = true;
+        page.townPartial = 'partials/town/' + req.params.town
       } else {
         page.townPartial = 'partials/town/howto'
       }
