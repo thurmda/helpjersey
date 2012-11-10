@@ -1,4 +1,4 @@
-#Help Jersey
+![logo](http://helpjersey.com/img/logo/logo-310-border.png)
 
 Our project is focused on making information available to Sandy victims and 
 volunteers that only have access to the internet via a phone. Most state and 
