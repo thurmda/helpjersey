@@ -1,4 +1,4 @@
-![logo](http://helpjersey.com/img/logo/logo-310-border.png)
+![logo](public/img/logo/logo-310-border.png)
 
 Our project is focused on making information available to Sandy victims and 
 volunteers that only have access to the internet via a phone. Most state and 
@@ -8,7 +8,7 @@ href="http://helpjersey.com/">helpjersey.com</a> in your phone's browser. You
 can share the latest news right through the site so others can benefit from up 
 to the second information.
 
-![preview](http://helpjersey.com/img/helpjersey_preview.png)
+![preview](public/img/helpjersey_preview.png)
 
 
 ##Install
